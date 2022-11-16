@@ -1,0 +1,31 @@
+documentation_complete: true
+
+prodtype: crunchy-data-postgres
+
+title: 'Verify Permissions Of The PostgreSQL Log Directory Files'
+
+description: |-
+    {{{ describe_file_permissions(file="${PGLOG?}/*.log", perms="0600") }}}
+
+rationale: |-
+    If audit data were to become compromised, then competent forensic analysis and discovery of the true source of potentially malicious system activity is impossible to achieve. 
+
+    To ensure the veracity of audit data the information system and/or the application must protect audit information from unauthorized modification. 
+
+severity: medium
+
+references:
+    disa: CCI-001493,CCI-000164
+    nist: AU-9
+    srg: SRG-APP-000119-DB-000060,SRG-APP-000120-DB-000061
+    stigid@crunchy-data-postgres: CD12-00-000400
+
+ocil_clause: '{{{ ocil_clause_file_permissions(file="${PGLOG?}/*.log", perms="-rw-------") }}}'
+
+ocil: |-
+    {{{ ocil_file_permissions(file="${PGLOG?}/*.log", perms="-rw-------") }}}
+
+fixtext: |-
+    {{{ describe_file_permissions(file="${PGLOG?}/*.log", perms="0600") }}}
+
+srg_requirement: '{{{ srg_requirement_file_permission(file="${PGLOG?}/*.log", mode="0600")  }}}'

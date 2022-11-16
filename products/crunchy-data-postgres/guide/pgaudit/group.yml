@@ -1,0 +1,10 @@
+documentation_complete: true
+
+title: pgAudit
+
+description: |-
+    This section provides settings for configuring CrunchyData Postgres policies to meet compliance
+    settings for CrunchyData Postgres running on Red Hat Enterprise Linux systems.
+
+    <ul>Refer to <li>{{{ weblink(link="http://kb.mozillazine.org/CrunchyData Postgres_:_FAQs_:_About:config_Entries") }}}</li>
+    for a list of currently supported CrunchyData Postgres settings.</ul>

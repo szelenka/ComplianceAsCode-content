@@ -1,0 +1,20 @@
+product: crunchy-data-postgres
+full_name: CrunchyData Postgres
+type: platform
+
+benchmark_id: CRUNCHYDATAPOSTGRES
+benchmark_root: "./guide"
+
+profiles_root: "./profiles"
+
+pkg_manager: "apt_get"
+
+cpes_root: "../../shared/applicability"
+cpes:
+  - crunchy-data-postgres:
+      name: "cpe:/o:crunchy-data:postgres"
+      title: "CrunchyData Postgres"
+      check_id: installed_app_is_crunchy-data-postgres
+
+reference_uris:
+  cis: 'https://www.cisecurity.org/benchmark/ubuntu_linux/'

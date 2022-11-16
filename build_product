@@ -305,6 +305,7 @@ set_explict_build_targets() {
 # Get this using
 # grep 'option(SSG_PRODUCT' CMakeLists.txt  | sed -e 's/option(SSG_PRODUCT_\(\w\+\).*/\1/'
 all_cmake_products=(
+	CRUNCHYDATAPOSTGRES
 	ALINUX2
 	ALINUX3
 	ANOLIS8

@@ -39,6 +39,7 @@ SSG_REF_URIS = {
 }
 
 product_directories = [
+    "crunchy-data-postgres",
     'alinux2',
     'alinux3',
     'anolis8',
@@ -193,6 +194,7 @@ PKG_MANAGER_TO_CONFIG_FILE = {
 }
 
 FULL_NAME_TO_PRODUCT_MAPPING = {
+    "CrunchyData Postgres": "crunchy-data-postgres",
     "Alibaba Cloud Linux 2": "alinux2",
     "Alibaba Cloud Linux 3": "alinux3",
     "Anolis OS 8": "anolis8",
@@ -432,6 +434,7 @@ XCCDF_PLATFORM_TO_PACKAGE = {
 
 # _version_name_map = {
 MAKEFILE_ID_TO_PRODUCT_MAP = {
+    "crunchy-data-postgres": "CrunchyData Postgres",
     'alinux': 'Alibaba Cloud Linux',
     'anolis': 'Anolis OS',
     'chromium': 'Google Chromium Browser',

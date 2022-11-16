@@ -1,0 +1,43 @@
+<def-group>
+  <definition class="compliance" id="file_permissions-pg_log_log"  version="1">
+    {{{ oval_metadata("This test makes sure that ${PGLOG?}/ has mode 0700.
+      If the target file or directory has an extended ACL, then it will fail the mode check.
+      ") }}}    <criteria>
+      <criterion comment="Check file mode of ${PGLOG?}" test_ref="test_file_permissions-pg_log_log" />
+    </criteria>
+  </definition>
+
+  <ind:environmentvariable58_object id="var_obj_file_permissions-pg_log_log" version="1">
+    <ind:pid xsi:nil="true" datatype="int" />
+    <ind:name>PGLOG</ind:name>
+  </ind:environmentvariable58_object>
+
+  <local_variable comment="Expose path for PGLOG" datatype="string" id="var_file_permissions-pg_log_log" version="1">
+    <concat>
+      <object_component item_field="value" object_ref="var_obj_file_permissions-pg_log_log" />
+      <literal_component>/.*\.log</literal_component>
+    </concat>
+  </local_variable>
+
+  <unix:file_test check="all" check_existence="all_exist" comment="Test that that /usr/lib/postgresql/14/bin/postgres does exist" id="test_file_permissions-pg_log_log" version="1">
+    <unix:object object_ref="obj_file_permissions-pg_log_log" />
+    <unix:state state_ref="state_file_permissions-pg_log_log" />
+  </unix:file_test>
+
+  <unix:file_object id="obj_file_permissions-pg_log_log" version="1">
+    <unix:filepath operation="pattern match" var_ref="var_file_permissions-pg_log_log" var_check="at least one" />
+  </unix:file_object>
+
+  <unix:file_state id="state_file_permissions-pg_log_log" operator="AND" version="3">
+    <unix:uread datatype="boolean">true</unix:uread>
+    <unix:uwrite datatype="boolean">true</unix:uwrite>
+    <unix:uexec datatype="boolean">false</unix:uexec>
+    <unix:gread datatype="boolean">false</unix:gread>
+    <unix:gwrite datatype="boolean">false</unix:gwrite>
+    <unix:gexec datatype="boolean">false</unix:gexec>
+    <unix:oread datatype="boolean">false</unix:oread>
+    <unix:owrite datatype="boolean">false</unix:owrite>
+    <unix:oexec datatype="boolean">false</unix:oexec>
+  </unix:file_state>
+
+</def-group>
